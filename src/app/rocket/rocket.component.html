@@ -1,0 +1,25 @@
+<nb-card>
+  <nb-card-header>Rocket Form</nb-card-header>
+  <nb-card-body>
+    <sffc-form-textbox caption="Cím" name="title" [formGroup]="formGroup"></sffc-form-textbox>
+    <sffc-form-select caption="Típus" name="type" [formGroup]="formGroup"></sffc-form-select>
+    <sffc-form-checkbox label="Aktív?" name="isActive" [formGroup]="formGroup"></sffc-form-checkbox>
+    <sffc-form-autocomplete
+      caption="Felhasználó" name="userId" [formGroup]="formGroup"
+      [handler]="userHandler"
+    ></sffc-form-autocomplete>
+    <sffc-form-datepicker
+      caption="Készült"
+      name="created"
+      [formGroup]="formGroup"
+    ></sffc-form-datepicker>
+    <sffc-form-datetime-picker
+      caption="Tervezett időpont"
+      name="planTime"
+      [formGroup]="formGroup"
+  ></sffc-form-datetime-picker>
+  </nb-card-body>
+  <nb-card-footer>
+    {{ formGroup.getRawValue() | json }}
+  </nb-card-footer>
+</nb-card>
